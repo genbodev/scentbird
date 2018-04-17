@@ -31,29 +31,28 @@ class Subscription extends Component {
         this.state = {
             data: {
                 email: {id: 'email', isValid: true, value: '', isVisible: true},
-                password: {id: 'password', isValid: true, value: '', isVisible: true},
-                firstName: {id: 'first-name', isValid: true, value: '', isVisible: true},
-                lastName: {id: 'last-name', isValid: true, value: '', isVisible: true},
-                streetAddress: {id: 'street-address', isValid: true, value: '', isVisible: true},
-                appSuite: {id: 'app-suite', isValid: true, value: '', isVisible: true},
-                zip: {id: 'zip', isValid: true, value: '', isVisible: true},
-                state: {id: 'state', isValid: true, value: 'New York', isVisible: true},
-                city: {id: 'city', isValid: true, value: '', isVisible: true},
-                country: {id: 'country', isValid: true, value: '', isVisible: true},
-                mobilePhone: {id: 'mobile-phone', isValid: true, value: '', isVisible: true},
-                cardNumber: {id: 'card-number', isValid: true, value: '', isVisible: true},
-                securityCode: {id: 'security-code', isValid: true, value: '', isVisible: true},
-                month: {id: 'month', isValid: true, value: 'Month', isVisible: true},
-                year: {id: 'year', isValid: true, value: 'Year', isVisible: true},
-                useCredit: {id: 'use-credit', isValid: true, value: false, isVisible: true},
+                password: {id: 'password', isValid: true, isSubmit: false, value: '', isVisible: true},
+                firstName: {id: 'first-name', isValid: true, isSubmit: false, value: '', isVisible: true},
+                lastName: {id: 'last-name', isValid: true, isSubmit: false, value: '', isVisible: true},
+                streetAddress: {id: 'street-address', isValid: true, isSubmit: false, value: '', isVisible: true},
+                appSuite: {id: 'app-suite', isValid: true, isSubmit: false, value: '', isVisible: true},
+                zip: {id: 'zip', isValid: true, isSubmit: false, value: '', isVisible: true},
+                state: {id: 'state', isValid: true, isSubmit: false, value: 'New York', isVisible: true},
+                city: {id: 'city', isValid: true, isSubmit: false, value: '', isVisible: true},
+                country: {id: 'country', isValid: true, isSubmit: false, value: '', isVisible: true},
+                mobilePhone: {id: 'mobile-phone', isValid: true, isSubmit: false, value: '', isVisible: true},
+                cardNumber: {id: 'card-number', isValid: true, isSubmit: false, value: '', isVisible: true},
+                securityCode: {id: 'security-code', isValid: true, isSubmit: false, value: '', isVisible: true},
+                month: {id: 'month', isValid: true, isSubmit: false, value: 'Month', isVisible: true},
+                year: {id: 'year', isValid: true, isSubmit: false, value: 'Year', isVisible: true},
+                useCredit: {id: 'use-credit', isValid: true, isSubmit: false, value: false, isVisible: true},
                 subscription: {
                     id: 'form-subscription-wrapper',
                     isValid: true,
                     value: {men: false, women: false},
                     isVisible: true
                 }
-            },
-            isSubmit: false
+            }
         };
     }
 
@@ -62,8 +61,6 @@ class Subscription extends Component {
     handleSwitchBilling = (e) => this.switchBilling(e);
 
     onSubmit() {
-
-        this.setState({isSubmit: true});
 
         let key, stateData = {};
         for (key in this.state.data) {
@@ -136,7 +133,7 @@ class Subscription extends Component {
                 if (key === 'useCredit') {
                     value = element.checked;
                 }
-                stateData[key] = {id: id, isValid: isValid, value: value, isVisible: isVisible};
+                stateData[key] = {id: id, isValid: isValid, isSubmit: true, value: value, isVisible: isVisible};
                 this.setState({data: stateData});
             }
         }
@@ -146,8 +143,6 @@ class Subscription extends Component {
     }
 
     onChange(e) {
-
-        this.setState({isSubmit: false});
 
         let key, stateData = {};
         for (key in this.state.data) {
@@ -175,6 +170,7 @@ class Subscription extends Component {
                     }
                     stateData[key]['value'] = value;
                     stateData[key]['isValid'] = true;
+                    stateData[key]['isSubmit'] = false;
                 }
             }
         }
@@ -219,7 +215,6 @@ class Subscription extends Component {
 
     render() {
         const {subscription, email, password, firstName, lastName, streetAddress, appSuite, zip, state, city, country, mobilePhone, cardNumber, securityCode, month, year} = this.state.data;
-        let isSubmit = this.state.isSubmit;
 
         if (this.props.cities) {
             let cities = this.props.cities.data;
@@ -343,7 +338,7 @@ class Subscription extends Component {
                                                         <Input type="email"
                                                                name="email"
                                                                id="email"
-                                                               className={(email.isValid && isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
+                                                               className={(email.isValid && email.isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
                                                                placeholder="Email address"
                                                                onChange={this.handleOnChange}
                                                                invalid={!email.isValid}
@@ -363,7 +358,7 @@ class Subscription extends Component {
                                                         <Input type="password"
                                                                name="password"
                                                                id="password"
-                                                               className={(password.isValid && isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
+                                                               className={(password.isValid && password.isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
                                                                placeholder="Password"
                                                                onChange={this.handleOnChange}
                                                                invalid={!password.isValid}
@@ -390,7 +385,7 @@ class Subscription extends Component {
                                                     <Input type="text"
                                                            name="first-name"
                                                            id="first-name"
-                                                           className={(firstName.isValid && isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
+                                                           className={(firstName.isValid && firstName.isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
                                                            placeholder="First name"
                                                            onChange={this.handleOnChange}
                                                            invalid={!firstName.isValid}
@@ -409,7 +404,7 @@ class Subscription extends Component {
                                                     <Input type="text"
                                                            name="last-name"
                                                            id="last-name"
-                                                           className={(lastName.isValid && isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
+                                                           className={(lastName.isValid && lastName.isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
                                                            placeholder="Last name"
                                                            onChange={this.handleOnChange}
                                                            invalid={!lastName.isValid}
@@ -440,7 +435,7 @@ class Subscription extends Component {
                                                         <Input type="text"
                                                                name="street-address"
                                                                id="street-address"
-                                                               className={(streetAddress.isValid && isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
+                                                               className={(streetAddress.isValid && streetAddress.isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
                                                                placeholder="Street address"
                                                                onChange={this.handleOnChange}
                                                                invalid={!streetAddress.isValid}
@@ -460,7 +455,7 @@ class Subscription extends Component {
                                                         <Input type="text"
                                                                name="app-suite"
                                                                id="app-suite"
-                                                               className={(appSuite.isValid && isSubmit) ? "input-group-custom is-valid readonly" : "input-group-custom readonly"}
+                                                               className={(appSuite.isValid && appSuite.isSubmit) ? "input-group-custom is-valid readonly" : "input-group-custom readonly"}
                                                                placeholder="App/Suite (Optional)"
                                                                onChange={this.handleOnChange}
                                                                invalid={!appSuite.isValid}
@@ -483,7 +478,7 @@ class Subscription extends Component {
                                                         <Input type="text"
                                                                name="zip"
                                                                id="zip"
-                                                               className={(zip.isValid && isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
+                                                               className={(zip.isValid && zip.isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
                                                                placeholder="ZIP"
                                                                onChange={this.handleOnChange}
                                                                invalid={!zip.isValid}
@@ -531,7 +526,7 @@ class Subscription extends Component {
                                                         <Input type="text"
                                                                name="country"
                                                                id="country"
-                                                               className={(country.isValid && isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
+                                                               className={(country.isValid && country.isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
                                                                placeholder="Country"
                                                                onChange={this.handleOnChange}
                                                                invalid={!country.isValid}
@@ -553,7 +548,7 @@ class Subscription extends Component {
                                                         <Input type="text"
                                                                name="mobile-phone"
                                                                id="mobile-phone"
-                                                               className={(mobilePhone.isValid && isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
+                                                               className={(mobilePhone.isValid && mobilePhone.isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
                                                                placeholder="Mobile number (Optional)"
                                                                onChange={this.handleOnChange}
                                                                invalid={!mobilePhone.isValid}
@@ -595,7 +590,7 @@ class Subscription extends Component {
                                                         <Label for="card-number" hidden>Credit card number</Label>
                                                         <InputGroup>
                                                             <Input type="text" name="card-number" id="card-number"
-                                                                   className={(cardNumber.isValid && isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
+                                                                   className={(cardNumber.isValid && cardNumber.isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
                                                                    placeholder="Credit card number"
                                                                    onChange={this.handleOnChange}
                                                                    invalid={!cardNumber.isValid}
@@ -671,8 +666,8 @@ class Subscription extends Component {
                                                                 <Input type="text"
                                                                        name="security-code"
                                                                        id="security-code"
-                                                                       className={(securityCode.isValid && isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
-                                                                       placeholder="Security code"
+                                                                       className={(securityCode.isValid && securityCode.isSubmit) ? "input-group-custom is-valid" : "input-group-custom"}
+                                                                       placeholder="Code"
                                                                        onChange={this.handleOnChange}
                                                                        invalid={!securityCode.isValid}
                                                                        autoComplete="off"/>
