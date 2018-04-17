@@ -1,0 +1,518 @@
+@charset "UTF-8";
+#subscription {
+  margin: 20px 0 20px 0; }
+  #subscription .product-header {
+    display: none;
+    margin-bottom: 44px;
+    text-align: center; }
+    #subscription .product-header h1 {
+      font-size: 2.25rem;
+      text-transform: uppercase;
+      margin-bottom: 2px; }
+    #subscription .product-header h4 {
+      font-size: 1.375rem;
+      text-transform: uppercase;
+      display: none; }
+    #subscription .product-header p {
+      color: #ff408e;
+      padding-left: 2px; }
+  #subscription .product-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    height: 680px;
+    border: 1px solid #e6e6e6; }
+    #subscription .product-wrapper .product-image-wrapper {
+      text-align: center;
+      padding: 40px 0 46px 0; }
+    #subscription .product-wrapper .product-details,
+    #subscription .product-wrapper .product-total {
+      width: 340px;
+      border-top: 1px solid #e6e6e6;
+      padding-top: 14px; }
+    #subscription .product-wrapper .product-details {
+      padding: 17px 0 10px 0; }
+    #subscription .product-wrapper .product-details-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.875rem;
+      margin-bottom: 9px; }
+      #subscription .product-wrapper .product-details-row .discount {
+        color: #ff408e; }
+      #subscription .product-wrapper .product-details-row .credit-wrapper {
+        display: flex; }
+      #subscription .product-wrapper .product-details-row .credit-data {
+        margin-right: 10px; }
+    #subscription .product-wrapper .product-total {
+      padding: 13px 0 10px 0; }
+      #subscription .product-wrapper .product-total a.coupon-link {
+        color: #ff408e;
+        text-decoration: none;
+        border-bottom: 1px dashed #ff408e;
+        line-height: 1rem;
+        display: inline-block; }
+    #subscription .product-wrapper .product-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Gotham Medium', 'Open Sans', sans-serif;
+      text-transform: uppercase;
+      color: #151515;
+      margin-bottom: 27px; }
+    #subscription .product-wrapper input.credit-custom-checkbox:not(:checked), #subscription .product-wrapper input.credit-custom-checkbox:checked {
+      position: absolute;
+      left: -9999px; }
+    #subscription .product-wrapper input.credit-custom-checkbox:not(:checked) + label,
+    #subscription .product-wrapper input.credit-custom-checkbox:checked + label {
+      position: relative;
+      padding-left: 18px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      color: rgba(0, 0, 0, 0.6); }
+    #subscription .product-wrapper input.credit-custom-checkbox:not(:checked) + label:before,
+    #subscription .product-wrapper input.credit-custom-checkbox:checked + label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 17px;
+      height: 17px;
+      border: 1px solid #9b9b9b;
+      background: #ffffff;
+      border-radius: 3px;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3); }
+    #subscription .product-wrapper input.credit-custom-checkbox:not(:checked) + label:after,
+    #subscription .product-wrapper input.credit-custom-checkbox:checked + label:after {
+      content: '';
+      font-family: 'FontAwesome', 'Open Sans', sans-serif;
+      position: absolute;
+      top: -7px;
+      left: 1px;
+      font-size: 1.375rem;
+      color: #ff408e;
+      /*transition: all .2s;*/ }
+    #subscription .product-wrapper input.credit-custom-checkbox:not(:checked) + label:after {
+      opacity: 0;
+      transform: scale(0); }
+    #subscription .product-wrapper input.credit-custom-checkbox:checked + label:after {
+      opacity: 1;
+      transform: scale(1); }
+    #subscription .product-wrapper input.credit-custom-checkbox:disabled:not(:checked) + label:before,
+    #subscription .product-wrapper input.credit-custom-checkbox:disabled:checked + label:before {
+      box-shadow: none;
+      border-color: #bbb;
+      background-color: #ddd; }
+    #subscription .product-wrapper input.credit-custom-checkbox:disabled:checked + label:after {
+      color: #999; }
+    #subscription .product-wrapper input.credit-custom-checkbox:disabled + label {
+      color: #aaa; }
+    #subscription .product-wrapper input.credit-custom-checkbox:checked:focus + label:before,
+    #subscription .product-wrapper input.credit-custom-checkbox:not(:checked):focus + label:before {
+      outline: none; }
+  #subscription .info-wrapper {
+    display: block;
+    width: 400px; }
+    #subscription .info-wrapper .info-image {
+      margin: 20px 0 20px 0; }
+    #subscription .info-wrapper .info-text {
+      font-size: 0.875rem; }
+  #subscription .subscription-type-wrapper {
+    display: none;
+    font-size: 1.875rem; }
+  #subscription .form-wrapper .invalid-feedback {
+    margin-bottom: 1px; }
+  #subscription .form-wrapper .form-header {
+    text-align: left;
+    display: block; }
+    #subscription .form-wrapper .form-header h1 {
+      font-size: 2.25rem;
+      text-transform: uppercase;
+      margin-bottom: 2px; }
+    #subscription .form-wrapper .form-header p {
+      color: #ff408e;
+      padding-left: 2px; }
+  #subscription .form-wrapper .form-subscription-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center; }
+    #subscription .form-wrapper .form-subscription-wrapper .form-subscription-option {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 130px;
+      margin: 0 25px 0 25px;
+      position: relative;
+      cursor: pointer; }
+      #subscription .form-wrapper .form-subscription-wrapper .form-subscription-option .subscription-image {
+        width: 120px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+      #subscription .form-wrapper .form-subscription-wrapper .form-subscription-option .subscription-check-image, #subscription .form-wrapper .form-subscription-wrapper .form-subscription-option .subscription-uncheck-image {
+        position: absolute;
+        top: 60px;
+        left: 75px;
+        width: 24px;
+        height: 24px;
+        background: url("./check.png") no-repeat center; }
+      #subscription .form-wrapper .form-subscription-wrapper .form-subscription-option .subscription-uncheck-image {
+        background: url("./uncheck.png") no-repeat center; }
+      #subscription .form-wrapper .form-subscription-wrapper .form-subscription-option .subscription-text {
+        font-size: 1.5rem; }
+  #subscription .form-wrapper .subscription-feedback {
+    margin-bottom: 30px;
+    text-align: center; }
+  #subscription .form-wrapper .form-subscription-wrapper.is-invalid ~ .invalid-feedback {
+    visibility: visible; }
+  #subscription .form-wrapper .account-fields {
+    margin-top: 44px; }
+  #subscription .form-wrapper h4 {
+    margin-bottom: 21px;
+    text-align: center; }
+  #subscription .form-wrapper input {
+    border-radius: 0;
+    height: 50px;
+    font-size: 1.125rem;
+    color: #000000;
+    border-color: #e6e6e6; }
+    #subscription .form-wrapper input:focus {
+      box-shadow: none;
+      border-color: rgba(255, 69, 143, 0.6); }
+  #subscription .form-wrapper input::-webkit-input-placeholder {
+    color: #9b9b9b; }
+  #subscription .form-wrapper input::-moz-placeholder {
+    color: #9b9b9b; }
+  #subscription .form-wrapper input:-moz-placeholder {
+    color: #9b9b9b; }
+  #subscription .form-wrapper input:-moz-placeholder {
+    color: #9b9b9b; }
+  #subscription .form-wrapper input[placeholder] {
+    text-overflow: ellipsis; }
+  #subscription .form-wrapper input::-moz-placeholder {
+    text-overflow: ellipsis; }
+  #subscription .form-wrapper input:-moz-placeholder {
+    text-overflow: ellipsis; }
+  #subscription .form-wrapper input:-ms-input-placeholder {
+    text-overflow: ellipsis; }
+  #subscription .form-wrapper input.is-invalid {
+    border: 2px solid #fd6464; }
+  #subscription .form-wrapper .invalid-feedback {
+    color: red;
+    font-size: 0.75rem;
+    display: block;
+    visibility: hidden; }
+  #subscription .form-wrapper .form-control.is-invalid ~ .invalid-feedback {
+    visibility: visible; }
+  #subscription .form-wrapper .custom-input-label-wrapper {
+    position: relative; }
+    #subscription .form-wrapper .custom-input-label-wrapper .custom-input-label {
+      position: absolute;
+      left: 12px;
+      top: -8px;
+      line-height: 1;
+      font-size: 0.875rem;
+      margin: 0;
+      background-color: #ffffff;
+      padding: 0 3px;
+      color: #9b9b9b;
+      z-index: 10; }
+  #subscription .form-wrapper .form-check {
+    padding: 0; }
+  #subscription .form-wrapper input.billing-custom-checkbox:not(:checked), #subscription .form-wrapper input.billing-custom-checkbox:checked {
+    position: absolute;
+    left: -9999px; }
+  #subscription .form-wrapper input.billing-custom-checkbox:not(:checked) + label,
+  #subscription .form-wrapper input.billing-custom-checkbox:checked + label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.6);
+    user-select: none; }
+  #subscription .form-wrapper input.billing-custom-checkbox:not(:checked) + label:before,
+  #subscription .form-wrapper input.billing-custom-checkbox:checked + label:before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: 1px;
+    width: 17px;
+    height: 17px;
+    border: 1px solid #ff408e;
+    background: #ff6ba6;
+    border-radius: 0;
+    box-shadow: none; }
+  #subscription .form-wrapper input.billing-custom-checkbox:not(:checked) + label:after,
+  #subscription .form-wrapper input.billing-custom-checkbox:checked + label:after {
+    content: '';
+    font-family: 'FontAwesome', 'Open Sans', sans-serif;
+    position: absolute;
+    top: -1px;
+    left: 1px;
+    font-size: 0.9375rem;
+    color: #ffffff;
+    /*transition: all .2s;*/ }
+  #subscription .form-wrapper input.billing-custom-checkbox:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0); }
+  #subscription .form-wrapper input.billing-custom-checkbox:checked + label:after {
+    opacity: 1;
+    transform: scale(1); }
+  #subscription .form-wrapper input.billing-custom-checkbox:disabled:not(:checked) + label:before,
+  #subscription .form-wrapper input.billing-custom-checkbox:disabled:checked + label:before {
+    box-shadow: none;
+    border-color: #bbb;
+    background-color: #ddd; }
+  #subscription .form-wrapper input.billing-custom-checkbox:disabled:checked + label:after {
+    color: #999; }
+  #subscription .form-wrapper input.billing-custom-checkbox:disabled + label {
+    color: #aaa; }
+  #subscription .form-wrapper .billing-custom-checkbox-label {
+    margin-bottom: 20px; }
+  #subscription .form-wrapper input.billing-custom-checkbox:checked:focus + label:before,
+  #subscription .form-wrapper input.billing-custom-checkbox:not(:checked):focus + label:before {
+    outline: none; }
+  #subscription .form-wrapper .form-billing-path {
+    display: none; }
+  #subscription .form-wrapper .input-group-text {
+    background-color: #fff;
+    border-left: 0; }
+  #subscription .form-wrapper .input-group-custom {
+    border-right-width: 0;
+    transition: none; }
+  #subscription .form-wrapper .input-group-text-zip {
+    border-color: #e6e6e6;
+    color: #ff408e; }
+  #subscription .form-wrapper .input-group-custom:focus + .input-group-append > span {
+    border-color: rgba(255, 69, 143, 0.6); }
+  #subscription .form-wrapper .input-group-custom.is-invalid {
+    border: 2px solid #fd6464;
+    border-right-width: 0; }
+  #subscription .form-wrapper .input-group-custom.is-invalid + .input-group-append > span {
+    border-top-color: #fd6464;
+    border-bottom-color: #fd6464;
+    border-right-color: #fd6464;
+    border-width: 2px;
+    border-radius: 0; }
+    #subscription .form-wrapper .input-group-custom.is-invalid + .input-group-append > span :first-child {
+      display: none; }
+  #subscription .form-wrapper .input-group-custom + .input-group-append > span {
+    border-top-color: #e6e6e6;
+    border-bottom-color: #e6e6e6;
+    border-right-color: #e6e6e6;
+    border-width: 1px;
+    border-radius: 0; }
+    #subscription .form-wrapper .input-group-custom + .input-group-append > span :first-child {
+      display: none; }
+  #subscription .form-wrapper .input-group-custom.is-valid + .input-group-append > span :first-child {
+    display: block; }
+  #subscription .form-wrapper .input-group-custom.readonly {
+    border-width: 1px; }
+  #subscription .form-wrapper .input-group-custom.readonly ~ .input-group-append span {
+    display: none; }
+  #subscription .form-wrapper .select-custom {
+    text-transform: uppercase;
+    border-radius: 0;
+    height: 50px;
+    font-size: 1.125rem;
+    color: #000000;
+    border-color: #e6e6e6;
+    background-image: linear-gradient(45deg, transparent 50%, #ff408e 60%), linear-gradient(135deg, #ff408e 40%, transparent 50%) !important;
+    background-position: calc(100% - 21px) 20px, calc(100% - 15px) 20px, 100% 0;
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+    -webkit-appearance: none;
+    -moz-appearance: none; }
+    #subscription .form-wrapper .select-custom:focus {
+      box-shadow: none;
+      border-color: rgba(255, 69, 143, 0.6); }
+    #subscription .form-wrapper .select-custom option {
+      text-transform: uppercase; }
+  #subscription .form-wrapper select.is-invalid,
+  #subscription .form-wrapper select.is-invalid:focus {
+    border: 2px solid #fd6464; }
+  #subscription .form-wrapper .form-control[readonly] {
+    background-color: #fafafa; }
+  #subscription .form-wrapper .offers-text-field {
+    display: flex; }
+  #subscription .form-wrapper .send-offers-text {
+    font-size: 0.875rem;
+    align-self: center; }
+  #subscription .form-wrapper .form-card-payment {
+    background-color: #fafafa;
+    border: 1px solid #e6e6e6;
+    padding: 20px 29px 20px 29px;
+    margin-bottom: 24px; }
+    #subscription .form-wrapper .form-card-payment .form-payment-title {
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+      margin-bottom: 20px; }
+      #subscription .form-wrapper .form-card-payment .form-payment-title .form-payment-encryption-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        #subscription .form-wrapper .form-card-payment .form-payment-title .form-payment-encryption-wrapper .encryption-image {
+          width: 29px;
+          height: 35px;
+          margin-right: 10px;
+          background: url("./encryption.png") no-repeat center;
+          background-size: contain; }
+        #subscription .form-wrapper .form-card-payment .form-payment-title .form-payment-encryption-wrapper .encryption-text {
+          text-transform: uppercase;
+          color: rgba(41, 149, 1, 0.6);
+          font-size: 0.875rem;
+          font-weight: 500; }
+      #subscription .form-wrapper .form-card-payment .form-payment-title .form-payment-cards-wrapper > svg {
+        font-size: 1.75rem;
+        margin: 2px;
+        opacity: .3; }
+  #subscription .form-wrapper .input-group-card-number {
+    border-color: #e6e6e6;
+    color: #dddddd;
+    background-color: #ffffff; }
+  #subscription .form-wrapper .security-code-field {
+    display: flex; }
+  #subscription .form-wrapper .month-field {
+    width: 140px; }
+    #subscription .form-wrapper .month-field select {
+      text-transform: none; }
+      #subscription .form-wrapper .month-field select option {
+        text-transform: none; }
+  #subscription .form-wrapper .year-field {
+    width: 140px; }
+    #subscription .form-wrapper .year-field select {
+      text-transform: none; }
+      #subscription .form-wrapper .year-field select option {
+        text-transform: none; }
+  #subscription .form-wrapper .expiry-text-field {
+    display: flex; }
+  #subscription .form-wrapper .question {
+    width: 36px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  #subscription .form-wrapper .expiry-fields {
+    display: flex;
+    justify-content: space-between; }
+  #subscription .form-wrapper .expiry-text {
+    align-self: center;
+    font-size: 1.125rem;
+    color: #9b9b9b; }
+  #subscription .form-wrapper .back-button {
+    font-size: 1.125rem;
+    opacity: .4;
+    color: #000000;
+    text-decoration: underline;
+    align-self: center; }
+  #subscription .form-wrapper .submit-wrapper {
+    display: flex;
+    background-color: #ff458f;
+    height: 50px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; }
+    #subscription .form-wrapper .submit-wrapper .submit-text {
+      color: #ffffff;
+      font-size: 1.125rem;
+      font-weight: 500;
+      text-transform: uppercase; }
+    #subscription .form-wrapper .submit-wrapper .submit-arrow {
+      right: 15px;
+      position: absolute;
+      width: 22px;
+      height: 16px;
+      background: url("./rectangle.png") no-repeat center; }
+  #subscription .form-wrapper .info-wrapper-bottom {
+    display: none;
+    margin-top: 60px; }
+    #subscription .form-wrapper .info-wrapper-bottom .info-image {
+      margin: 0;
+      text-align: center; }
+    #subscription .form-wrapper .info-wrapper-bottom .info-text {
+      font-size: 0.875rem; }
+  @media (max-width: 1199px) {
+    #subscription .form-wrapper .month-field {
+      width: 120px; }
+    #subscription .form-wrapper .year-field {
+      width: 120px; } }
+  @media (max-width: 991px) {
+    #subscription .product-header {
+      display: block; }
+    #subscription .product-wrapper {
+      flex-direction: row;
+      justify-content: space-evenly;
+      height: auto; }
+    #subscription .info-wrapper {
+      display: none; }
+    #subscription .form-wrapper .form-header {
+      display: none; }
+    #subscription .form-wrapper .info-wrapper-bottom {
+      display: block; }
+    #subscription .form-wrapper .month-field {
+      width: 140px; }
+    #subscription .form-wrapper .year-field {
+      width: 140px; } }
+  @media (max-width: 767px) {
+    #subscription .product-wrapper {
+      flex-direction: column;
+      border: 0; }
+      #subscription .product-wrapper .product-details-wrapper {
+        width: 100%; }
+        #subscription .product-wrapper .product-details-wrapper .product-details {
+          width: auto; }
+        #subscription .product-wrapper .product-details-wrapper .product-total {
+          width: auto; }
+    #subscription .account-fields {
+      display: none; }
+    #subscription .state-field {
+      display: none; }
+    #subscription .city-field {
+      display: none; }
+    #subscription .form-wrapper .subscription-type-wrapper {
+      display: block; }
+    #subscription .form-wrapper .offers-text-field {
+      display: none; }
+    #subscription .form-wrapper .form-card-payment .form-payment-title {
+      flex-direction: column;
+      align-items: flex-start; }
+      #subscription .form-wrapper .form-card-payment .form-payment-title .form-payment-encryption-wrapper {
+        margin-bottom: 10px; }
+    #subscription .form-wrapper .month-field {
+      width: 90%; }
+    #subscription .form-wrapper .year-field {
+      width: 90%;
+      margin-left: 10px; }
+    #subscription .form-wrapper .expiry-text-field {
+      display: none; }
+    #subscription .form-wrapper .info-wrapper-bottom {
+      margin-top: 30px; }
+    #subscription .back-button {
+      display: none; } }
+  @media (max-width: 543px) {
+    #subscription .product-header {
+      margin: 0; }
+      #subscription .product-header h1 {
+        display: none; }
+      #subscription .product-header h4 {
+        display: block; }
+      #subscription .product-header p {
+        margin: 0; }
+    #subscription .product-wrapper .product-image-wrapper img {
+      height: 150px; }
+    #subscription .form-title {
+      font-size: 1.25rem; }
+    #subscription .form-wrapper .form-card-payment .form-payment-title .form-payment-encryption-wrapper .encryption-text {
+      font-size: 0.75rem; }
+    #subscription .form-wrapper .form-card-payment .form-payment-title .form-payment-encryption-wrapper .encryption-image {
+      width: 25px;
+      height: 31px; }
+    #subscription .form-wrapper .info-wrapper-bottom .info-text {
+      font-size: 1rem;
+      margin-bottom: 20px; } }
